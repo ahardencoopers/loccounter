@@ -1,0 +1,158 @@
+linea;
+linea; 
+linea;		
+	linea;
+class Banco
+	 linea;
+	 linea;	
+	function initialize() {
+	  var content = document.getElementById('content');
+	  content.innerHTML = '<div id="text">Hola, me alegro mucho de verte.<\/div><div id="translation"/>';
+	  var text = document.getElementById("text").innerHTML;
+	  google.language.translate(text, 'es', 'en', function(result) {
+		var translated = document.getElementById("translation");
+		if (result.translation) {
+		  translated.innerHTML = "Cuando la etiqueta esta en un string //&m tampoco se debe contar";
+	function onLoad() {
+	  var content = document.getElementById('content');
+	  content.innerHTML = '<div><i>(Scroll down)</i> ' +
+						  'You can click the Show/Hide button enable/disable' +
+						  ' the Virtual Keyboard.</div>' +
+						  '<input type="button" onclick="toggleVisible()" ' +
+						  'id="btVisible" value="Hide"></input><br/>' +
+						  '<textarea id="t1" cols="100" rows="5"></textarea>';
+	  kbd = new google.elements.keyboard.Keyboard(
+		  [google.elements.keyboard.LayoutCode.THAI],
+		  ['t1']);
+	function toggleVisible() {
+	  var button = document.getElementById('btVisible');
+	  if (kbd.isVisible()) {
+		kbd.setVisible(false);
+		document.getElementById('btVisible').value = 'Show';
+	  } else {
+		kbd.setVisible(true);
+		document.getElementById('btVisible').value = 'Hide';
+class Cuenta
+  declara;
+  declara;
+  declara;
+		var content = document.getElementById('content');
+		var bloggerService =
+			new google.gdata.blogger.BloggerService('com.appspot.interactivesampler');
+		var feedUri = 'http://www.blogger.com/feeds/17839063281282724568/blogs';
+		var handleBlogFeed = function(blogFeedRoot) {
+		  var author = blogFeedRoot.feed.getAuthors();
+		  var authorName = author[0].getName().getValue();
+		  var authorUri = author[0].getUri().getValue();
+		  var html = '<h1>Blogger User</h1>'
+			   + '<h2>Profile Information</h2>'
+			   + '<dl>'
+			   + '<dt>Profile Name:</dt>'
+			   + '<dd>' + authorName + '</dd>'
+			   + '<dt>Profile Name:</dt>'
+			   + '<dd><a href="' + authorUri + '">' + authorUri + '</a></dd>';
+		  html += '<h2>Blog List</h2>';
+		  var blogEntries = blogFeedRoot.feed.getEntries();
+		  if(!blogEntries.length) {
+			html += '<p>First <a href="http://www.blogger.com" '
+				  + 'target="_blank">create a blog</a>.</p>';
+		  } else {
+			html += '<table rules="groups">'
+				  + '<thead><tr>'
+				  + '<th>Blog Name/Link</th><th>Last Updated</th>'
+				  + '</tr></thead>'
+				  + '<tbody>';
+			for (var i = 0, blogEntry; blogEntry = blogEntries[i]; i++) {
+			  var blogURL = blogEntry.getHtmlLink().getHref(); //&m		
+			  var blogUpdated = blogEntry.getUpdated().getValue().getDate();
+			  html += '<tr>'
+					+ '<td><a href="' + blogURL + '" target="_blank">'
+					+ blogTitle
+					+ '</a></td>'
+					+ '<td>' + blogUpdated + '</td>'
+					+ '</tr>';
+			html += '</tbody>'
+				  + '</table>'; //&m    
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		var handleError = function(error) {
+		  content.innerHTML = '<pre>' + error + '</pre>';
+		bloggerService.getBlogFeed(feedUri, handleBlogFeed, handleError);
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+class Cliente
+		  linea;
+		  linea;
+		  linea; //&m
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea; //&m
+		  linea; //&m
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea; //&m
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea; //&m	
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;
+		  linea;

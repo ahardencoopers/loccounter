@@ -10,7 +10,7 @@ nombres.size.times do |i|
 	archivo = File.open(nombres[i], "r")
 
 	archivo.each_line do |linea|
-		if !/^\s*$/.match(linea) && !/^\s*[{}();]+\s*$/.match(linea) && !/^\s*\/\//.match(linea) && !/\s*\/\*.*\*\//.match(linea)
+		if !/^\s*$/.match(linea) && !/^\s*[{}]+\s*$/.match(linea) && !/^\s*\/\//.match(linea) && !/\s*\/\*.*\*\//.match(linea)
 			if /^\s*\/\*.*/.match(linea)
 				multicomment = true
 			end
@@ -21,6 +21,7 @@ nombres.size.times do |i|
 			end
                         
 			if !multicomment
+				puts linea
 				if /\/\/&m\s*$/.match(linea)
 					partes[-1].modified = partes[-1].modified + 1
 				end
