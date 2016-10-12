@@ -3,9 +3,12 @@ lines = gets(nil)
 nombres = lines.split("\n")
 
 Parte = Struct.new(:id, :total, :items, :base, :deleted, :modified, :added)
+
 ldctotal = 0
+codigo = []
 partes = []
 multicomment = false
+
 nombres.size.times do |i|
 	archivo = File.open(nombres[i], "r")
 
@@ -49,8 +52,8 @@ nombres.size.times do |i|
 				partes.push(parte)
 			end
 		end
-	end
-end
+	end #Fin leer linea archivo
+end #Fin leer nombres archivo
 
 
 puts "PARTES BASE:"
@@ -79,3 +82,7 @@ partes.size.times do |i|
 end
 puts "---------------------------------------------------------------------"
 puts "Total de LDC #{ldctotal}"
+
+
+
+
