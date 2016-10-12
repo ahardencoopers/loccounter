@@ -5,7 +5,7 @@ nombres = lines.split("\n")
 Parte = Struct.new(:id, :total, :items, :base, :deleted, :modified, :added)
 
 ldctotal = 0
-codigo = []
+sources = []
 partes = []
 multicomment = false
 
@@ -24,7 +24,6 @@ nombres.size.times do |i|
 			end
                         
 			if !multicomment
-				puts linea
 				if /\/\/&m\s*$/.match(linea)
 					partes[-1].modified = partes[-1].modified + 1
 				end
@@ -52,32 +51,39 @@ nombres.size.times do |i|
 				partes.push(parte)
 			end
 		end
-	end #Fin leer linea archivo
-end #Fin leer nombres archivo
-
+	end
+	sources.push(partes.dup)
+	partes = []
+end
 
 puts "PARTES BASE:"
-partes.size.times do |i|
-	partes[i].added = partes[i].total - partes[i].base + partes[i].deleted
+sources.size.times do |j|
+	sources[j].size.times do |i|
+		sources[j][i].added = sources[j][i].total - sources[j][i].base + sources[j][i].deleted
 
-	if partes[i].base > 0 && (partes[i].modified > 0 || partes[i].deleted > 0 || partes[i].added > 0)
-		puts "  #{partes[i].id}: T=#{partes[i].total} I=#{partes[i].items} B=#{partes[i].base} D=#{partes[i].deleted} M=#{partes[i].modified} A=#{partes[i].added}"
+		if sources[j][i].base > 0 && (sources[j][i].modified > 0 || sources[j][i].deleted > 0 || sources[j][i].added > 0)
+			puts "  #{sources[j][i].id}: T=#{sources[j][i].total} I=#{sources[j][i].items} B=#{sources[j][i].base} D=#{sources[j][i].deleted} M=#{sources[j][i].modified} A=#{sources[j][i].added}"
+		end
 	end
 end
 puts "---------------------------------------------------------------------"
 
 puts "PARTES NUEVAS:"
-partes.size.times do |i|
-	if partes[i].base == 0 && partes[i].modified == 0 && partes[i].deleted == 0 && partes[i].added > 0
-		puts "  #{partes[i].id}: T=#{partes[i].total} I=#{partes[i].items}"
+sources.size.times do |j|
+	sources[j].size.times do |i|
+		if sources[j][i].base == 0 && sources[j][i].modified == 0 && sources[j][i].deleted == 0 && sources[j][i].added > 0
+			puts "  #{sources[j][i].id}: T=#{sources[j][i].total} I=#{sources[j][i].items}"
+		end
 	end
 end
 puts "---------------------------------------------------------------------"
 
 puts "PARTES REUSADAS:"
-partes.size.times do |i|
-	if partes[i].base > 0 && partes[i].modified == 0 && partes[i].deleted == 0 && partes[i].added == 0
-		puts "  #{partes[i].id}: T=#{partes[i].total} I=#{partes[i].items} B=#{partes[i].base}"
+sources.size.times do |j|
+	sources[j].size.times do |i|
+		if sources[j][i].base > 0 && sources[j][i].modified == 0 && sources[j][i].deleted == 0 && sources[j][i].added == 0
+			puts "  #{sources[j][i].id}: T=#{sources[j][i].total} I=#{sources[j][i].items} B=#{sources[j][i].base}"
+		end
 	end
 end
 puts "---------------------------------------------------------------------"
